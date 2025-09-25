@@ -10,6 +10,18 @@ namespace QuanNetCung
         // Chuỗi kết nối, thay đổi theo server của bạn
         private static string connectionString = @"Server=localhost;Database=QuanNetDB;Trusted_Connection=True;MultipleActiveResultSets=true;";
 
+        // Thông tin người dùng & vai trò hiện tại (cache sau khi đăng nhập)
+        public static string CurrentUsername { get; private set; } = string.Empty;
+        public static UserRole CurrentRole { get; private set; } = UserRole.Unknown;
+
+        public enum UserRole
+        {
+            Unknown = 0,
+            Admin = 1,
+            NhanVien = 2,
+            HoiVien = 3
+        }
+
         // Phương thức để lấy kết nối
         public static SqlConnection GetConnection()
         {
@@ -148,7 +160,39 @@ namespace QuanNetCung
         // Phương thức để thiết lập user (thay đổi connection string)
         public static void SetUser(string username, string password)
         {
-            connectionString = $"Server=localhost;Database=QuanNetDB;User Id={username};Password={password};";
+            connectionString = $"Server=localhost;Database=QuanNetDB;User Id={username};Password={password};MultipleActiveResultSets=true;";
+            CurrentUsername = username;
+            CurrentRole = UserRole.Unknown; // reset trước khi detect
+        }
+
+        // Phát hiện role bằng IS_ROLEMEMBER các role ứng dụng
+        public static void DetectRole()
+        {
+            try
+            {
+                using (var conn = GetConnection())
+                {
+                    conn.Open();
+                    var cmd = new SqlCommand(@"SELECT CASE 
+ WHEN IS_ROLEMEMBER('rl_admin') = 1 THEN 'Admin'
+ WHEN IS_ROLEMEMBER('rl_nhanvien') = 1 THEN 'NhanVien'
+ WHEN IS_ROLEMEMBER('rl_hoivien') = 1 THEN 'HoiVien'
+ ELSE 'Unknown' END", conn);
+                    var roleStr = (cmd.ExecuteScalar() ?? "Unknown").ToString();
+                    CurrentRole = roleStr switch
+                    {
+                        "Admin" => UserRole.Admin,
+                        "NhanVien" => UserRole.NhanVien,
+                        "HoiVien" => UserRole.HoiVien,
+                        _ => UserRole.Unknown
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                CurrentRole = UserRole.Unknown;
+                MessageBox.Show("Không thể xác định vai trò: " + ex.Message, "Role", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }

@@ -1,6 +1,5 @@
 using System;
-using System.Data;
-using System.Data.SqlClient;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace QuanNetCung
@@ -10,36 +9,25 @@ namespace QuanNetCung
         public FormCaiDat()
         {
             InitializeComponent();
-            LoadKhachHang();
         }
 
-        private void LoadKhachHang()
+        private void btnDangXuat_Click(object sender, EventArgs e)
         {
-            string query = "SELECT ID, TenKH FROM KhachHang";
-            DataTable dt = DatabaseHelper.ExecuteQuery(query);
-            if (dt != null)
-            {
-                cmbKhachHang.DataSource = dt;
-                cmbKhachHang.DisplayMember = "TenKH";
-                cmbKhachHang.ValueMember = "ID";
-            }
-        }
+            var confirm = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất?", "Đăng xuất",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (confirm != DialogResult.Yes) return;
 
-        private void btnXemTongTien_Click(object sender, EventArgs e)
-        {
-            if (cmbKhachHang.SelectedValue == null)
+            var login = new FormLogin
             {
-                MessageBox.Show("Vui lòng chọn khách hàng!");
-                return;
-            }
+                StartPosition = FormStartPosition.CenterScreen
+            };
+            login.Show();
 
-            int id = (int)cmbKhachHang.SelectedValue;
-            SqlParameter[] parameters = { new SqlParameter("@IDKhachHang", id) };
-
-            object result = DatabaseHelper.ExecuteScalarFunction("fn_TinhTongTien", parameters);
-            if (result != null)
+            // Đóng tất cả form khác (kể cả FormMain, FormCaiDat)
+            foreach (Form f in Application.OpenForms.Cast<Form>().ToList())
             {
-                lblTongTien.Text = "Tổng tiền đã sử dụng: " + result.ToString();
+                if (!(f is FormLogin))
+                    f.Close();
             }
         }
     }

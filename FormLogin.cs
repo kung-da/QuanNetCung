@@ -28,7 +28,8 @@ namespace QuanNetCung
             var dt = DatabaseHelper.ExecuteQuery("SELECT 1");
             if (dt != null)
             {
-                // Đăng nhập thành công, mở FormMain
+                // Đăng nhập thành công -> phát hiện vai trò
+                DatabaseHelper.DetectRole();
                 FormMain mainForm = new FormMain();
                 mainForm.Show();
                 this.Hide();
@@ -43,6 +44,7 @@ namespace QuanNetCung
         {
             cmbUser.Items.Add("adminnet");
             cmbUser.Items.Add("nhanvien");
+            cmbUser.Items.Add("hoivien");
         }
     }
 }
