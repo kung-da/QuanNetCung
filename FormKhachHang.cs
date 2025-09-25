@@ -11,6 +11,7 @@ namespace QuanNetCung
         {
             InitializeComponent();
             LoadData();
+            LoadGoiHoiVien();
         }
 
         private void LoadData()
@@ -48,6 +49,26 @@ namespace QuanNetCung
             }
         }
 
+        private void LoadGoiHoiVien()
+        {
+            try
+            {
+                DataTable dt = DatabaseHelper.ExecuteQuery("SELECT MaGoi, TenGoi FROM GoiHoiVien");
+                if (dt != null)
+                {
+                    // Thêm dòng 'Không' (NULL)
+                    DataRow r = dt.NewRow();
+                    r["MaGoi"] = DBNull.Value;
+                    r["TenGoi"] = "Không";
+                    dt.Rows.InsertAt(r, 0);
+                    cmbGoiHoiVien.DisplayMember = "TenGoi";
+                    cmbGoiHoiVien.ValueMember = "MaGoi";
+                    cmbGoiHoiVien.DataSource = dt;
+                }
+            }
+            catch { }
+        }
+
         private void btnSua_Click(object sender, EventArgs e)
         {
             if (dgvKhachHang.SelectedRows.Count == 0)
@@ -59,6 +80,8 @@ namespace QuanNetCung
             int id = (int)dgvKhachHang.SelectedRows[0].Cells["ID"].Value;
             string tenKH = txtTenKH.Text.Trim();
             string soDT = txtSoDienThoai.Text.Trim();
+            object maGoiValue = cmbGoiHoiVien.SelectedValue;
+            object maGoiDb = maGoiValue == null || maGoiValue == DBNull.Value ? (object)DBNull.Value : maGoiValue;
 
             if (string.IsNullOrEmpty(tenKH) || string.IsNullOrEmpty(soDT))
             {
@@ -66,11 +89,13 @@ namespace QuanNetCung
                 return;
             }
 
-            string query = "UPDATE KhachHang SET TenKH = @TenKH, SoDienThoai = @SoDienThoai WHERE ID = @ID";
+            // Chỉ cập nhật các trường cho phép sửa: Tên, SĐT, MaGoiHV
+            string query = "UPDATE KhachHang SET TenKH = @TenKH, SoDienThoai = @SoDienThoai, MaGoiHV = @MaGoiHV WHERE ID = @ID";
             SqlParameter[] parameters = {
                 new SqlParameter("@ID", id),
                 new SqlParameter("@TenKH", tenKH),
-                new SqlParameter("@SoDienThoai", soDT)
+                new SqlParameter("@SoDienThoai", soDT),
+                new SqlParameter("@MaGoiHV", maGoiDb)
             };
 
             int result = DatabaseHelper.ExecuteNonQuery(query, parameters);
@@ -131,6 +156,10 @@ namespace QuanNetCung
             txtTenKH.Clear();
             txtSoDienThoai.Clear();
             txtTimKiem.Clear();
+            txtSoTienNap.Clear();
+            txtSoGioDaChoi.Clear();
+            txtNgayDangKy.Clear();
+            if (cmbGoiHoiVien.DataSource != null) cmbGoiHoiVien.SelectedIndex = 0;
         }
 
         private void dgvKhachHang_SelectionChanged(object sender, EventArgs e)
@@ -140,6 +169,28 @@ namespace QuanNetCung
                 DataGridViewRow row = dgvKhachHang.SelectedRows[0];
                 txtTenKH.Text = row.Cells["TenKH"].Value.ToString();
                 txtSoDienThoai.Text = row.Cells["SoDienThoai"].Value.ToString();
+                txtSoTienNap.Text = row.Cells["SoTienNap"].Value.ToString();
+                txtSoGioDaChoi.Text = row.Cells["SoGioDaChoi"].Value.ToString();
+                txtNgayDangKy.Text = Convert.ToDateTime(row.Cells["NgayDangKy"].Value).ToString("dd/MM/yyyy HH:mm");
+                // MaGoiHV có thể null
+                var maGoi = row.Cells["MaGoiHV"].Value;
+                if (maGoi == null || maGoi == DBNull.Value)
+                {
+                    cmbGoiHoiVien.SelectedIndex = 0; // Không
+                }
+                else
+                {
+                    int mg = Convert.ToInt32(maGoi);
+                    for (int i = 0; i < cmbGoiHoiVien.Items.Count; i++)
+                    {
+                        var drv = cmbGoiHoiVien.Items[i] as DataRowView;
+                        if (drv != null && drv["MaGoi"] != DBNull.Value && Convert.ToInt32(drv["MaGoi"]) == mg)
+                        {
+                            cmbGoiHoiVien.SelectedIndex = i;
+                            break;
+                        }
+                    }
+                }
             }
         }
     }

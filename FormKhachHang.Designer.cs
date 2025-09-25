@@ -40,6 +40,14 @@ namespace QuanNetCung
             txtTimKiem = new TextBox();
             btnTimKiem = new Button();
             btnLamMoi = new Button();
+            label4 = new Label();
+            txtSoTienNap = new TextBox();
+            label5 = new Label();
+            txtSoGioDaChoi = new TextBox();
+            label6 = new Label();
+            txtNgayDangKy = new TextBox();
+            label7 = new Label();
+            cmbGoiHoiVien = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dgvKhachHang).BeginInit();
             SuspendLayout();
             // 
@@ -71,6 +79,7 @@ namespace QuanNetCung
             txtTenKH.Name = "txtTenKH";
             txtTenKH.Size = new Size(199, 27);
             txtTenKH.TabIndex = 2;
+            txtTenKH.BackColor = System.Drawing.Color.White;
             // 
             // label2
             // 
@@ -89,6 +98,7 @@ namespace QuanNetCung
             txtSoDienThoai.Name = "txtSoDienThoai";
             txtSoDienThoai.Size = new Size(159, 27);
             txtSoDienThoai.TabIndex = 4;
+            txtSoDienThoai.BackColor = System.Drawing.Color.White;
             // 
             // btnThem
             // 
@@ -140,6 +150,7 @@ namespace QuanNetCung
             txtTimKiem.Name = "txtTimKiem";
             txtTimKiem.Size = new Size(199, 27);
             txtTimKiem.TabIndex = 9;
+            txtTimKiem.BackColor = System.Drawing.Color.White;
             // 
             // btnTimKiem
             // 
@@ -162,6 +173,61 @@ namespace QuanNetCung
             btnLamMoi.Text = "Làm mới";
             btnLamMoi.UseVisualStyleBackColor = true;
             btnLamMoi.Click += btnLamMoi_Click;
+
+            // label4 SoTienNap
+            label4.AutoSize = true;
+            label4.Location = new Point(625, 508);
+            label4.Name = "label4";
+            label4.Size = new Size(84, 20);
+            label4.Text = "Số tiền nạp:";
+
+            // txtSoTienNap (readonly)
+            txtSoTienNap.Location = new Point(715, 503);
+            txtSoTienNap.Name = "txtSoTienNap";
+            txtSoTienNap.ReadOnly = true;
+            txtSoTienNap.Size = new Size(110, 27);
+            txtSoTienNap.BackColor = System.Drawing.Color.White;
+
+            // label5 SoGioDaChoi
+            label5.AutoSize = true;
+            label5.Location = new Point(840, 508);
+            label5.Name = "label5";
+            label5.Size = new Size(94, 20);
+            label5.Text = "Giờ đã chơi:";
+
+            // txtSoGioDaChoi (readonly)
+            txtSoGioDaChoi.Location = new Point(940, 503);
+            txtSoGioDaChoi.Name = "txtSoGioDaChoi";
+            txtSoGioDaChoi.ReadOnly = true;
+            txtSoGioDaChoi.Size = new Size(90, 27);
+            txtSoGioDaChoi.BackColor = System.Drawing.Color.White;
+
+            // label6 NgayDangKy
+            label6.AutoSize = true;
+            label6.Location = new Point(570, 561);
+            label6.Name = "label6";
+            label6.Size = new Size(94, 20);
+            label6.Text = "Ngày đăng ký:";
+
+            // txtNgayDangKy (readonly)
+            txtNgayDangKy.Location = new Point(670, 556);
+            txtNgayDangKy.Name = "txtNgayDangKy";
+            txtNgayDangKy.ReadOnly = true;
+            txtNgayDangKy.Size = new Size(155, 27);
+            txtNgayDangKy.BackColor = System.Drawing.Color.White;
+
+            // label7 Gói hội viên
+            label7.AutoSize = true;
+            label7.Location = new Point(840, 561);
+            label7.Name = "label7";
+            label7.Size = new Size(85, 20);
+            label7.Text = "Gói hội viên:";
+
+            // cmbGoiHoiVien
+            cmbGoiHoiVien.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbGoiHoiVien.Location = new Point(930, 556);
+            cmbGoiHoiVien.Name = "cmbGoiHoiVien";
+            cmbGoiHoiVien.Size = new Size(100, 28);
             // 
             // FormKhachHang
             // 
@@ -180,6 +246,14 @@ namespace QuanNetCung
             Controls.Add(txtTenKH);
             Controls.Add(label1);
             Controls.Add(dgvKhachHang);
+            Controls.Add(label4);
+            Controls.Add(txtSoTienNap);
+            Controls.Add(label5);
+            Controls.Add(txtSoGioDaChoi);
+            Controls.Add(label6);
+            Controls.Add(txtNgayDangKy);
+            Controls.Add(label7);
+            Controls.Add(cmbGoiHoiVien);
             Margin = new Padding(4, 5, 4, 5);
             Name = "FormKhachHang";
             Text = "Quản lý khách hàng";
@@ -203,5 +277,13 @@ namespace QuanNetCung
         private System.Windows.Forms.TextBox txtTimKiem;
         private System.Windows.Forms.Button btnTimKiem;
         private System.Windows.Forms.Button btnLamMoi;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtSoTienNap;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtSoGioDaChoi;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtNgayDangKy;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cmbGoiHoiVien;
     }
 }

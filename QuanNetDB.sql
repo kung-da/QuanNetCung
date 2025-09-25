@@ -1,11 +1,10 @@
 /* =============================================================
-    SCRIPT CHÍNH KHỞI TẠO CSDL QUÁN NET (TỐI GỌN)
+    SCRIPT CHÍNH KHỞI TẠO CSDL QUÁN NET
     Gồm 3 phần chính:
         1. CẤU TRÚC (DDL: database, bảng, view, function, trigger, stored procedure)
         2. DỮ LIỆU MẪU (khởi tạo dữ liệu tham khảo)
         3. PHÂN QUYỀN (Role, User, cấp quyền chi tiết)
     Có thể chạy lại nhiều lần an toàn (idempotent) nhờ kiểm tra tồn tại trước khi DROP.
-    Lưu ý: Thay đổi mật khẩu trong môi trường triển khai thật để đảm bảo bảo mật.
 ============================================================= */
 
 /* ============================
