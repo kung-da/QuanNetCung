@@ -54,11 +54,12 @@ namespace QuanNetCung
             // dgvKhachHang
             // 
             dgvKhachHang.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvKhachHang.Location = new Point(16, 18);
+            dgvKhachHang.Dock = DockStyle.Top;
+            dgvKhachHang.Location = new Point(0, 0);
             dgvKhachHang.Margin = new Padding(4, 5, 4, 5);
             dgvKhachHang.Name = "dgvKhachHang";
             dgvKhachHang.RowHeadersWidth = 51;
-            dgvKhachHang.Size = new Size(1014, 462);
+            dgvKhachHang.Size = new Size(1043, 462);
             dgvKhachHang.TabIndex = 0;
             dgvKhachHang.SelectionChanged += dgvKhachHang_SelectionChanged;
             // 
@@ -74,12 +75,12 @@ namespace QuanNetCung
             // 
             // txtTenKH
             // 
+            txtTenKH.BackColor = Color.White;
             txtTenKH.Location = new Point(107, 503);
             txtTenKH.Margin = new Padding(4, 5, 4, 5);
             txtTenKH.Name = "txtTenKH";
             txtTenKH.Size = new Size(199, 27);
             txtTenKH.TabIndex = 2;
-            txtTenKH.BackColor = System.Drawing.Color.White;
             // 
             // label2
             // 
@@ -93,12 +94,12 @@ namespace QuanNetCung
             // 
             // txtSoDienThoai
             // 
+            txtSoDienThoai.BackColor = Color.White;
             txtSoDienThoai.Location = new Point(440, 503);
             txtSoDienThoai.Margin = new Padding(4, 5, 4, 5);
             txtSoDienThoai.Name = "txtSoDienThoai";
             txtSoDienThoai.Size = new Size(159, 27);
             txtSoDienThoai.TabIndex = 4;
-            txtSoDienThoai.BackColor = System.Drawing.Color.White;
             // 
             // btnThem
             // 
@@ -145,12 +146,12 @@ namespace QuanNetCung
             // 
             // txtTimKiem
             // 
+            txtTimKiem.BackColor = Color.White;
             txtTimKiem.Location = new Point(107, 611);
             txtTimKiem.Margin = new Padding(4, 5, 4, 5);
             txtTimKiem.Name = "txtTimKiem";
             txtTimKiem.Size = new Size(199, 27);
             txtTimKiem.TabIndex = 9;
-            txtTimKiem.BackColor = System.Drawing.Color.White;
             // 
             // btnTimKiem
             // 
@@ -173,61 +174,77 @@ namespace QuanNetCung
             btnLamMoi.Text = "Làm mới";
             btnLamMoi.UseVisualStyleBackColor = true;
             btnLamMoi.Click += btnLamMoi_Click;
-
-            // label4 SoTienNap
+            // 
+            // label4
+            // 
             label4.AutoSize = true;
             label4.Location = new Point(625, 508);
             label4.Name = "label4";
-            label4.Size = new Size(84, 20);
+            label4.Size = new Size(87, 20);
+            label4.TabIndex = 12;
             label4.Text = "Số tiền nạp:";
-
-            // txtSoTienNap (readonly)
+            // 
+            // txtSoTienNap
+            // 
+            txtSoTienNap.BackColor = Color.White;
             txtSoTienNap.Location = new Point(715, 503);
             txtSoTienNap.Name = "txtSoTienNap";
             txtSoTienNap.ReadOnly = true;
             txtSoTienNap.Size = new Size(110, 27);
-            txtSoTienNap.BackColor = System.Drawing.Color.White;
-
-            // label5 SoGioDaChoi
+            txtSoTienNap.TabIndex = 13;
+            // 
+            // label5
+            // 
             label5.AutoSize = true;
             label5.Location = new Point(840, 508);
             label5.Name = "label5";
-            label5.Size = new Size(94, 20);
+            label5.Size = new Size(88, 20);
+            label5.TabIndex = 14;
             label5.Text = "Giờ đã chơi:";
-
-            // txtSoGioDaChoi (readonly)
+            // 
+            // txtSoGioDaChoi
+            // 
+            txtSoGioDaChoi.BackColor = Color.White;
             txtSoGioDaChoi.Location = new Point(940, 503);
             txtSoGioDaChoi.Name = "txtSoGioDaChoi";
             txtSoGioDaChoi.ReadOnly = true;
             txtSoGioDaChoi.Size = new Size(90, 27);
-            txtSoGioDaChoi.BackColor = System.Drawing.Color.White;
-
-            // label6 NgayDangKy
+            txtSoGioDaChoi.TabIndex = 15;
+            // 
+            // label6
+            // 
             label6.AutoSize = true;
             label6.Location = new Point(570, 561);
             label6.Name = "label6";
-            label6.Size = new Size(94, 20);
+            label6.Size = new Size(103, 20);
+            label6.TabIndex = 16;
             label6.Text = "Ngày đăng ký:";
-
-            // txtNgayDangKy (readonly)
+            // 
+            // txtNgayDangKy
+            // 
+            txtNgayDangKy.BackColor = Color.White;
             txtNgayDangKy.Location = new Point(670, 556);
             txtNgayDangKy.Name = "txtNgayDangKy";
             txtNgayDangKy.ReadOnly = true;
             txtNgayDangKy.Size = new Size(155, 27);
-            txtNgayDangKy.BackColor = System.Drawing.Color.White;
-
-            // label7 Gói hội viên
+            txtNgayDangKy.TabIndex = 17;
+            // 
+            // label7
+            // 
             label7.AutoSize = true;
             label7.Location = new Point(840, 561);
             label7.Name = "label7";
-            label7.Size = new Size(85, 20);
+            label7.Size = new Size(91, 20);
+            label7.TabIndex = 18;
             label7.Text = "Gói hội viên:";
-
+            // 
             // cmbGoiHoiVien
+            // 
             cmbGoiHoiVien.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbGoiHoiVien.Location = new Point(930, 556);
             cmbGoiHoiVien.Name = "cmbGoiHoiVien";
             cmbGoiHoiVien.Size = new Size(100, 28);
+            cmbGoiHoiVien.TabIndex = 19;
             // 
             // FormKhachHang
             // 

@@ -28,158 +28,173 @@ namespace QuanNetCung
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvGoiHV = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtTenGoi = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtThoiHan = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtGiaGoi = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtMoTa = new System.Windows.Forms.TextBox();
-            this.btnThem = new System.Windows.Forms.Button();
-            this.btnSua = new System.Windows.Forms.Button();
-            this.btnXoa = new System.Windows.Forms.Button();
-            this.btnLamMoi = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvGoiHV)).BeginInit();
-            this.SuspendLayout();
+            dgvGoiHV = new DataGridView();
+            label1 = new Label();
+            txtTenGoi = new TextBox();
+            label2 = new Label();
+            txtThoiHan = new TextBox();
+            label3 = new Label();
+            txtGiaGoi = new TextBox();
+            label4 = new Label();
+            txtMoTa = new TextBox();
+            btnThem = new Button();
+            btnSua = new Button();
+            btnXoa = new Button();
+            btnLamMoi = new Button();
+            ((System.ComponentModel.ISupportInitialize)dgvGoiHV).BeginInit();
+            SuspendLayout();
             // 
             // dgvGoiHV
             // 
-            this.dgvGoiHV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvGoiHV.Location = new System.Drawing.Point(12, 12);
-            this.dgvGoiHV.Name = "dgvGoiHV";
-            this.dgvGoiHV.Size = new System.Drawing.Size(560, 200);
-            this.dgvGoiHV.TabIndex = 0;
-            this.dgvGoiHV.SelectionChanged += new System.EventHandler(this.dgvGoiHV_SelectionChanged);
+            dgvGoiHV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvGoiHV.Location = new Point(16, 18);
+            dgvGoiHV.Margin = new Padding(4, 5, 4, 5);
+            dgvGoiHV.Name = "dgvGoiHV";
+            dgvGoiHV.RowHeadersWidth = 51;
+            dgvGoiHV.Size = new Size(1024, 366);
+            dgvGoiHV.TabIndex = 0;
+            dgvGoiHV.SelectionChanged += dgvGoiHV_SelectionChanged;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 230);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Tên gói:";
+            label1.AutoSize = true;
+            label1.Location = new Point(27, 399);
+            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(61, 20);
+            label1.TabIndex = 1;
+            label1.Text = "Tên gói:";
             // 
             // txtTenGoi
             // 
-            this.txtTenGoi.Location = new System.Drawing.Point(80, 227);
-            this.txtTenGoi.Name = "txtTenGoi";
-            this.txtTenGoi.Size = new System.Drawing.Size(150, 20);
-            this.txtTenGoi.TabIndex = 2;
+            txtTenGoi.Location = new Point(118, 394);
+            txtTenGoi.Margin = new Padding(4, 5, 4, 5);
+            txtTenGoi.Name = "txtTenGoi";
+            txtTenGoi.Size = new Size(199, 27);
+            txtTenGoi.TabIndex = 2;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(250, 230);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(50, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Thời hạn:";
+            label2.AutoSize = true;
+            label2.Location = new Point(344, 399);
+            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(69, 20);
+            label2.TabIndex = 3;
+            label2.Text = "Thời hạn:";
             // 
             // txtThoiHan
             // 
-            this.txtThoiHan.Location = new System.Drawing.Point(310, 227);
-            this.txtThoiHan.Name = "txtThoiHan";
-            this.txtThoiHan.Size = new System.Drawing.Size(100, 20);
-            this.txtThoiHan.TabIndex = 4;
+            txtThoiHan.Location = new Point(424, 394);
+            txtThoiHan.Margin = new Padding(4, 5, 4, 5);
+            txtThoiHan.Name = "txtThoiHan";
+            txtThoiHan.Size = new Size(132, 27);
+            txtThoiHan.TabIndex = 4;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 260);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(45, 13);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Giá gói:";
+            label3.AutoSize = true;
+            label3.Location = new Point(27, 445);
+            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(60, 20);
+            label3.TabIndex = 5;
+            label3.Text = "Giá gói:";
             // 
             // txtGiaGoi
             // 
-            this.txtGiaGoi.Location = new System.Drawing.Point(80, 257);
-            this.txtGiaGoi.Name = "txtGiaGoi";
-            this.txtGiaGoi.Size = new System.Drawing.Size(150, 20);
-            this.txtGiaGoi.TabIndex = 6;
+            txtGiaGoi.Location = new Point(118, 440);
+            txtGiaGoi.Margin = new Padding(4, 5, 4, 5);
+            txtGiaGoi.Name = "txtGiaGoi";
+            txtGiaGoi.Size = new Size(199, 27);
+            txtGiaGoi.TabIndex = 6;
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(250, 260);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(40, 13);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Mô tả:";
+            label4.AutoSize = true;
+            label4.Location = new Point(344, 445);
+            label4.Margin = new Padding(4, 0, 4, 0);
+            label4.Name = "label4";
+            label4.Size = new Size(51, 20);
+            label4.TabIndex = 7;
+            label4.Text = "Mô tả:";
             // 
             // txtMoTa
             // 
-            this.txtMoTa.Location = new System.Drawing.Point(310, 257);
-            this.txtMoTa.Name = "txtMoTa";
-            this.txtMoTa.Size = new System.Drawing.Size(150, 20);
-            this.txtMoTa.TabIndex = 8;
+            txtMoTa.Location = new Point(424, 440);
+            txtMoTa.Margin = new Padding(4, 5, 4, 5);
+            txtMoTa.Name = "txtMoTa";
+            txtMoTa.Size = new Size(199, 27);
+            txtMoTa.TabIndex = 8;
             // 
             // btnThem
             // 
-            this.btnThem.Location = new System.Drawing.Point(12, 290);
-            this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(75, 23);
-            this.btnThem.TabIndex = 9;
-            this.btnThem.Text = "Thêm";
-            this.btnThem.UseVisualStyleBackColor = true;
-            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
+            btnThem.Location = new Point(27, 491);
+            btnThem.Margin = new Padding(4, 5, 4, 5);
+            btnThem.Name = "btnThem";
+            btnThem.Size = new Size(100, 35);
+            btnThem.TabIndex = 9;
+            btnThem.Text = "Thêm";
+            btnThem.UseVisualStyleBackColor = true;
+            btnThem.Click += btnThem_Click;
             // 
             // btnSua
             // 
-            this.btnSua.Location = new System.Drawing.Point(100, 290);
-            this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(75, 23);
-            this.btnSua.TabIndex = 10;
-            this.btnSua.Text = "Sửa";
-            this.btnSua.UseVisualStyleBackColor = true;
-            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
+            btnSua.Location = new Point(144, 491);
+            btnSua.Margin = new Padding(4, 5, 4, 5);
+            btnSua.Name = "btnSua";
+            btnSua.Size = new Size(100, 35);
+            btnSua.TabIndex = 10;
+            btnSua.Text = "Sửa";
+            btnSua.UseVisualStyleBackColor = true;
+            btnSua.Click += btnSua_Click;
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(190, 290);
-            this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(75, 23);
-            this.btnXoa.TabIndex = 11;
-            this.btnXoa.Text = "Xóa";
-            this.btnXoa.UseVisualStyleBackColor = true;
-            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
+            btnXoa.Location = new Point(264, 491);
+            btnXoa.Margin = new Padding(4, 5, 4, 5);
+            btnXoa.Name = "btnXoa";
+            btnXoa.Size = new Size(100, 35);
+            btnXoa.TabIndex = 11;
+            btnXoa.Text = "Xóa";
+            btnXoa.UseVisualStyleBackColor = true;
+            btnXoa.Click += btnXoa_Click;
             // 
             // btnLamMoi
             // 
-            this.btnLamMoi.Location = new System.Drawing.Point(280, 290);
-            this.btnLamMoi.Name = "btnLamMoi";
-            this.btnLamMoi.Size = new System.Drawing.Size(75, 23);
-            this.btnLamMoi.TabIndex = 12;
-            this.btnLamMoi.Text = "Làm mới";
-            this.btnLamMoi.UseVisualStyleBackColor = true;
-            this.btnLamMoi.Click += new System.EventHandler(this.btnLamMoi_Click);
+            btnLamMoi.Location = new Point(384, 491);
+            btnLamMoi.Margin = new Padding(4, 5, 4, 5);
+            btnLamMoi.Name = "btnLamMoi";
+            btnLamMoi.Size = new Size(100, 35);
+            btnLamMoi.TabIndex = 12;
+            btnLamMoi.Text = "Làm mới";
+            btnLamMoi.UseVisualStyleBackColor = true;
+            btnLamMoi.Click += btnLamMoi_Click;
             // 
             // FormGoiHoiVien
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(584, 331);
-            this.Controls.Add(this.btnLamMoi);
-            this.Controls.Add(this.btnXoa);
-            this.Controls.Add(this.btnSua);
-            this.Controls.Add(this.btnThem);
-            this.Controls.Add(this.txtMoTa);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtGiaGoi);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtThoiHan);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtTenGoi);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.dgvGoiHV);
-            this.Name = "FormGoiHoiVien";
-            this.Text = "Quản lý gói hội viên";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvGoiHV)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1053, 553);
+            Controls.Add(btnLamMoi);
+            Controls.Add(btnXoa);
+            Controls.Add(btnSua);
+            Controls.Add(btnThem);
+            Controls.Add(txtMoTa);
+            Controls.Add(label4);
+            Controls.Add(txtGiaGoi);
+            Controls.Add(label3);
+            Controls.Add(txtThoiHan);
+            Controls.Add(label2);
+            Controls.Add(txtTenGoi);
+            Controls.Add(label1);
+            Controls.Add(dgvGoiHV);
+            Margin = new Padding(4, 5, 4, 5);
+            Name = "FormGoiHoiVien";
+            Text = "Quản lý gói hội viên";
+            ((System.ComponentModel.ISupportInitialize)dgvGoiHV).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 

@@ -8,11 +8,13 @@ namespace QuanNetCung
         public FormLogin()
         {
             InitializeComponent();
+            PastelTheme.ApplyLoginForm(this);
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string username = cmbUser.SelectedItem?.ToString();
+            var selected = cmbUser.SelectedItem;
+            string? username = selected != null ? selected.ToString() : null;
             string password = txtPassword.Text;
 
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))

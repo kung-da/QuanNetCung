@@ -30,12 +30,12 @@ namespace QuanNetCung
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.panelSidebar = new System.Windows.Forms.Panel();
-            this.btnQuanLyKhachHang = new System.Windows.Forms.Button();
-            this.btnNapTien = new System.Windows.Forms.Button();
-            this.btnLichSuChoi = new System.Windows.Forms.Button();
-            this.btnQuanLyGoiHV = new System.Windows.Forms.Button();
-            this.btnBaoCao = new System.Windows.Forms.Button();
-            this.btnCaiDat = new System.Windows.Forms.Button();
+            this.btnQuanLyKhachHang = new QuanNetCung.PastelButton();
+            this.btnNapTien = new QuanNetCung.PastelButton();
+            this.btnLichSuChoi = new QuanNetCung.PastelButton();
+            this.btnQuanLyGoiHV = new QuanNetCung.PastelButton();
+            this.btnBaoCao = new QuanNetCung.PastelButton();
+            this.btnCaiDat = new QuanNetCung.PastelButton();
             this.panelMain = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -58,7 +58,8 @@ namespace QuanNetCung
             // 
             this.splitContainer1.Panel2.Controls.Add(this.panelMain);
             this.splitContainer1.Size = new System.Drawing.Size(800, 450);
-            this.splitContainer1.SplitterDistance = 200;
+            this.splitContainer1.SplitterDistance = 250;
+            this.splitContainer1.IsSplitterFixed = true;
             this.splitContainer1.TabIndex = 0;
             // 
             // panelSidebar
@@ -72,14 +73,14 @@ namespace QuanNetCung
             this.panelSidebar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelSidebar.Location = new System.Drawing.Point(0, 0);
             this.panelSidebar.Name = "panelSidebar";
-            this.panelSidebar.Size = new System.Drawing.Size(200, 450);
+            this.panelSidebar.Size = new System.Drawing.Size(250, 450);
             this.panelSidebar.TabIndex = 0;
             // 
             // btnQuanLyKhachHang
             // 
-            this.btnQuanLyKhachHang.Location = new System.Drawing.Point(10, 20);
+            this.btnQuanLyKhachHang.Location = new System.Drawing.Point(10, 70);
             this.btnQuanLyKhachHang.Name = "btnQuanLyKhachHang";
-            this.btnQuanLyKhachHang.Size = new System.Drawing.Size(180, 40);
+            this.btnQuanLyKhachHang.Size = new System.Drawing.Size(230, 50);
             this.btnQuanLyKhachHang.TabIndex = 0;
             this.btnQuanLyKhachHang.Text = "👥 Quản lý khách hàng";
             this.btnQuanLyKhachHang.UseVisualStyleBackColor = true;
@@ -87,9 +88,9 @@ namespace QuanNetCung
             // 
             // btnNapTien
             // 
-            this.btnNapTien.Location = new System.Drawing.Point(10, 70);
+            this.btnNapTien.Location = new System.Drawing.Point(10, 130);
             this.btnNapTien.Name = "btnNapTien";
-            this.btnNapTien.Size = new System.Drawing.Size(180, 40);
+            this.btnNapTien.Size = new System.Drawing.Size(230, 50);
             this.btnNapTien.TabIndex = 1;
             this.btnNapTien.Text = "💳 Nạp tiền";
             this.btnNapTien.UseVisualStyleBackColor = true;
@@ -97,9 +98,9 @@ namespace QuanNetCung
             // 
             // btnLichSuChoi
             // 
-            this.btnLichSuChoi.Location = new System.Drawing.Point(10, 120);
+            this.btnLichSuChoi.Location = new System.Drawing.Point(10, 190);
             this.btnLichSuChoi.Name = "btnLichSuChoi";
-            this.btnLichSuChoi.Size = new System.Drawing.Size(180, 40);
+            this.btnLichSuChoi.Size = new System.Drawing.Size(230, 50);
             this.btnLichSuChoi.TabIndex = 2;
             this.btnLichSuChoi.Text = "⏳ Lịch sử chơi";
             this.btnLichSuChoi.UseVisualStyleBackColor = true;
@@ -107,9 +108,9 @@ namespace QuanNetCung
             // 
             // btnQuanLyGoiHV
             // 
-            this.btnQuanLyGoiHV.Location = new System.Drawing.Point(10, 170);
+            this.btnQuanLyGoiHV.Location = new System.Drawing.Point(10, 250);
             this.btnQuanLyGoiHV.Name = "btnQuanLyGoiHV";
-            this.btnQuanLyGoiHV.Size = new System.Drawing.Size(180, 40);
+            this.btnQuanLyGoiHV.Size = new System.Drawing.Size(230, 50);
             this.btnQuanLyGoiHV.TabIndex = 3;
             this.btnQuanLyGoiHV.Text = "🎫 Quản lý gói hội viên";
             this.btnQuanLyGoiHV.UseVisualStyleBackColor = true;
@@ -117,9 +118,9 @@ namespace QuanNetCung
             // 
             // btnBaoCao
             // 
-            this.btnBaoCao.Location = new System.Drawing.Point(10, 220);
+            this.btnBaoCao.Location = new System.Drawing.Point(10, 310);
             this.btnBaoCao.Name = "btnBaoCao";
-            this.btnBaoCao.Size = new System.Drawing.Size(180, 40);
+            this.btnBaoCao.Size = new System.Drawing.Size(230, 50);
             this.btnBaoCao.TabIndex = 4;
             this.btnBaoCao.Text = "📊 Báo cáo";
             this.btnBaoCao.UseVisualStyleBackColor = true;
@@ -127,9 +128,9 @@ namespace QuanNetCung
             // 
             // btnCaiDat
             // 
-            this.btnCaiDat.Location = new System.Drawing.Point(10, 270);
+            this.btnCaiDat.Location = new System.Drawing.Point(10, 370);
             this.btnCaiDat.Name = "btnCaiDat";
-            this.btnCaiDat.Size = new System.Drawing.Size(180, 40);
+            this.btnCaiDat.Size = new System.Drawing.Size(230, 50);
             this.btnCaiDat.TabIndex = 5;
             this.btnCaiDat.Text = "⚙️ Cài đặt";
             this.btnCaiDat.UseVisualStyleBackColor = true;
@@ -140,7 +141,7 @@ namespace QuanNetCung
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMain.Location = new System.Drawing.Point(0, 0);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(596, 450);
+            this.panelMain.Size = new System.Drawing.Size(546, 450);
             this.panelMain.TabIndex = 0;
             // 
             // FormMain
@@ -164,12 +165,12 @@ namespace QuanNetCung
 
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Panel panelSidebar;
-        private System.Windows.Forms.Button btnQuanLyKhachHang;
-        private System.Windows.Forms.Button btnNapTien;
-        private System.Windows.Forms.Button btnLichSuChoi;
-        private System.Windows.Forms.Button btnQuanLyGoiHV;
-        private System.Windows.Forms.Button btnBaoCao;
-        private System.Windows.Forms.Button btnCaiDat;
+    private QuanNetCung.PastelButton btnQuanLyKhachHang;
+    private QuanNetCung.PastelButton btnNapTien;
+    private QuanNetCung.PastelButton btnLichSuChoi;
+    private QuanNetCung.PastelButton btnQuanLyGoiHV;
+    private QuanNetCung.PastelButton btnBaoCao;
+    private QuanNetCung.PastelButton btnCaiDat;
         private System.Windows.Forms.Panel panelMain;
     }
 }

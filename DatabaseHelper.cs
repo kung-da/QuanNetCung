@@ -8,7 +8,7 @@ namespace QuanNetCung
     public static class DatabaseHelper
     {
         // Chuỗi kết nối, thay đổi theo server của bạn
-        private static string connectionString = @"Server=localhost;Database=QuanNetDB;Trusted_Connection=True;MultipleActiveResultSets=true;";
+        private static string connectionString = @"Server=localhost;Database=QuanNetDB;Trusted_Connection=True;MultipleActiveResultSets=true;Encrypt=False;";
 
         // Thông tin người dùng & vai trò hiện tại (cache sau khi đăng nhập)
         public static string CurrentUsername { get; private set; } = string.Empty;

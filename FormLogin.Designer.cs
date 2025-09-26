@@ -32,7 +32,7 @@ namespace QuanNetCung
             this.cmbUser = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
-            this.btnLogin = new System.Windows.Forms.Button();
+            this.btnLogin = new QuanNetCung.PastelButton();
             this.SuspendLayout();
             // 
             // label1
@@ -103,6 +103,6 @@ namespace QuanNetCung
         private System.Windows.Forms.ComboBox cmbUser;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.Button btnLogin;
+    private QuanNetCung.PastelButton btnLogin;
     }
 }

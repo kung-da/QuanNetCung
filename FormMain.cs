@@ -8,6 +8,41 @@ namespace QuanNetCung
         public FormMain()
         {
             InitializeComponent();
+            PastelTheme.ApplyMainForm(this);
+            
+            // Đăng ký sự kiện resize để refresh layout
+            this.Resize += FormMain_Resize;
+            this.SizeChanged += FormMain_SizeChanged;
+        }
+
+        private void FormMain_Resize(object? sender, EventArgs e)
+        {
+            RefreshLayout();
+        }
+
+        private void FormMain_SizeChanged(object? sender, EventArgs e)
+        {
+            if (WindowState == FormWindowState.Normal || WindowState == FormWindowState.Maximized)
+            {
+                // Hiệu ứng fade-in khi restore/maximize
+                PastelTheme.ApplyFadeIn(this);
+                RefreshLayout();
+            }
+        }
+
+        private void RefreshLayout()
+        {
+            // Áp dụng lại theme để đồng bộ màu pastel
+            PastelTheme.ApplyMainForm(this);
+            
+            // Refresh tất cả child forms
+            foreach (Control ctrl in panelMain.Controls)
+            {
+                if (ctrl is Form childForm)
+                {
+                    PastelTheme.RefreshAllControls(childForm);
+                }
+            }
         }
 
         private bool IsFormAllowed(Form f)
@@ -31,31 +66,37 @@ namespace QuanNetCung
 
         private void btnQuanLyKhachHang_Click(object sender, EventArgs e)
         {
+            if (sender is Button b1) PastelTheme.MarkActive(b1);
             OpenForm(new FormKhachHang());
         }
 
         private void btnNapTien_Click(object sender, EventArgs e)
         {
+            if (sender is Button b2) PastelTheme.MarkActive(b2);
             OpenForm(new FormNapTien());
         }
 
         private void btnLichSuChoi_Click(object sender, EventArgs e)
         {
+            if (sender is Button b3) PastelTheme.MarkActive(b3);
             OpenForm(new FormLichSuChoi());
         }
 
         private void btnQuanLyGoiHV_Click(object sender, EventArgs e)
         {
+            if (sender is Button b4) PastelTheme.MarkActive(b4);
             OpenForm(new FormGoiHoiVien());
         }
 
         private void btnBaoCao_Click(object sender, EventArgs e)
         {
+            if (sender is Button b5) PastelTheme.MarkActive(b5);
             OpenForm(new FormBaoCao());
         }
 
         private void btnCaiDat_Click(object sender, EventArgs e)
         {
+            if (sender is Button b6) PastelTheme.MarkActive(b6);
             OpenForm(new FormCaiDat());
         }
 
@@ -80,6 +121,7 @@ namespace QuanNetCung
             form.Dock = DockStyle.Fill;
             panelMain.Controls.Add(form);
             form.Show();
+            PastelTheme.HookChildForm(form);
         }
     }
 }
