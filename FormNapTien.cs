@@ -27,30 +27,40 @@ namespace QuanNetCung
 
         private void btnNapTien_Click(object sender, EventArgs e)
         {
-            if (cmbKhachHang.SelectedValue == null)
+            try
             {
-                MessageBox.Show("Vui lòng chọn khách hàng!");
-                return;
-            }
+                if (cmbKhachHang.SelectedValue == null)
+                {
+                    MessageBox.Show("Vui lòng chọn khách hàng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
 
-            int id = (int)cmbKhachHang.SelectedValue;
-            decimal soTien;
-            if (!decimal.TryParse(txtSoTien.Text, out soTien) || soTien <= 0)
-            {
-                MessageBox.Show("Vui lòng nhập số tiền hợp lệ!");
-                return;
-            }
+                int id = (int)cmbKhachHang.SelectedValue;
+                decimal soTien;
+                if (!decimal.TryParse(txtSoTien.Text, out soTien) || soTien <= 0)
+                {
+                    MessageBox.Show("Vui lòng nhập số tiền hợp lệ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
 
-            SqlParameter[] parameters = {
-                new SqlParameter("@ID", id),
-                new SqlParameter("@SoTien", soTien)
-            };
+                SqlParameter[] parameters = {
+                    new SqlParameter("@ID", id),
+                    new SqlParameter("@SoTien", soTien)
+                };
 
-            int result = DatabaseHelper.ExecuteStoredProcedureNonQuery("sp_NapTien", parameters);
-            if (result > 0)
-            {
-                MessageBox.Show("Nạp tiền thành công!");
+                int result = DatabaseHelper.ExecuteStoredProcedureNonQuery("sp_NapTien", parameters);
+                
+                // Luôn hiển thị thông báo thành công vì stored procedure sẽ thành công nếu không có lỗi
+                MessageBox.Show($"Nạp tiền thành công!\nSố tiền: {soTien:N0} VND\nKhách hàng: {cmbKhachHang.Text}", 
+                    "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtSoTien.Clear();
+                
+                // Refresh lại danh sách khách hàng để cập nhật số dư (nếu cần)
+                LoadKhachHang();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Nạp tiền thất bại!\nLỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

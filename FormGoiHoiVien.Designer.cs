@@ -1,3 +1,6 @@
+using System.Drawing;
+using System.Windows.Forms;
+
 namespace QuanNetCung
 {
     partial class FormGoiHoiVien
@@ -37,10 +40,10 @@ namespace QuanNetCung
             txtGiaGoi = new TextBox();
             label4 = new Label();
             txtMoTa = new TextBox();
-            btnThem = new Button();
-            btnSua = new Button();
-            btnXoa = new Button();
-            btnLamMoi = new Button();
+            btnThem = new PastelButton();
+            btnSua = new PastelButton();
+            btnXoa = new PastelButton();
+            btnLamMoi = new PastelButton();
             ((System.ComponentModel.ISupportInitialize)dgvGoiHV).BeginInit();
             SuspendLayout();
             // 
@@ -50,7 +53,9 @@ namespace QuanNetCung
             dgvGoiHV.Location = new Point(16, 18);
             dgvGoiHV.Margin = new Padding(4, 5, 4, 5);
             dgvGoiHV.Name = "dgvGoiHV";
+            dgvGoiHV.RowHeadersVisible = false;
             dgvGoiHV.RowHeadersWidth = 51;
+            dgvGoiHV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvGoiHV.Size = new Size(1024, 366);
             dgvGoiHV.TabIndex = 0;
             dgvGoiHV.SelectionChanged += dgvGoiHV_SelectionChanged;
@@ -88,7 +93,7 @@ namespace QuanNetCung
             txtThoiHan.Location = new Point(424, 394);
             txtThoiHan.Margin = new Padding(4, 5, 4, 5);
             txtThoiHan.Name = "txtThoiHan";
-            txtThoiHan.Size = new Size(132, 27);
+            txtThoiHan.Size = new Size(199, 27);
             txtThoiHan.TabIndex = 4;
             // 
             // label3
@@ -129,45 +134,97 @@ namespace QuanNetCung
             // 
             // btnThem
             // 
-            btnThem.Location = new Point(27, 491);
+            btnThem.BackColor = Color.FromArgb(161, 201, 241);
+            btnThem.BorderColor = Color.FromArgb(244, 194, 215);
+            btnThem.BorderRadius = 12;
+            btnThem.BorderThickness = 1;
+            btnThem.EnableGradient = true;
+            btnThem.EnableShadow = true;
+            btnThem.FlatStyle = FlatStyle.Flat;
+            btnThem.Font = new Font("Segoe UI Semibold", 10F);
+            btnThem.ForeColor = Color.Black;
+            btnThem.HoverColor = Color.FromArgb(239, 176, 201);
+            btnThem.Location = new Point(27, 485);
             btnThem.Margin = new Padding(4, 5, 4, 5);
             btnThem.Name = "btnThem";
-            btnThem.Size = new Size(100, 35);
+            btnThem.NormalColor = Color.FromArgb(161, 201, 241);
+            btnThem.Padding = new Padding(8, 4, 8, 4);
+            btnThem.PressedColor = Color.FromArgb(185, 214, 243);
+            btnThem.Size = new Size(120, 45);
             btnThem.TabIndex = 9;
-            btnThem.Text = "Thêm";
+            btnThem.Text = "➕ Thêm";
             btnThem.UseVisualStyleBackColor = true;
             btnThem.Click += btnThem_Click;
             // 
             // btnSua
             // 
-            btnSua.Location = new Point(144, 491);
+            btnSua.BackColor = Color.FromArgb(161, 201, 241);
+            btnSua.BorderColor = Color.FromArgb(244, 194, 215);
+            btnSua.BorderRadius = 12;
+            btnSua.BorderThickness = 1;
+            btnSua.EnableGradient = true;
+            btnSua.EnableShadow = true;
+            btnSua.FlatStyle = FlatStyle.Flat;
+            btnSua.Font = new Font("Segoe UI Semibold", 10F);
+            btnSua.ForeColor = Color.Black;
+            btnSua.HoverColor = Color.FromArgb(239, 176, 201);
+            btnSua.Location = new Point(160, 485);
             btnSua.Margin = new Padding(4, 5, 4, 5);
             btnSua.Name = "btnSua";
-            btnSua.Size = new Size(100, 35);
+            btnSua.NormalColor = Color.FromArgb(161, 201, 241);
+            btnSua.Padding = new Padding(8, 4, 8, 4);
+            btnSua.PressedColor = Color.FromArgb(185, 214, 243);
+            btnSua.Size = new Size(120, 45);
             btnSua.TabIndex = 10;
-            btnSua.Text = "Sửa";
+            btnSua.Text = "✏️ Sửa";
             btnSua.UseVisualStyleBackColor = true;
             btnSua.Click += btnSua_Click;
             // 
             // btnXoa
             // 
-            btnXoa.Location = new Point(264, 491);
+            btnXoa.BackColor = Color.FromArgb(161, 201, 241);
+            btnXoa.BorderColor = Color.FromArgb(244, 194, 215);
+            btnXoa.BorderRadius = 12;
+            btnXoa.BorderThickness = 1;
+            btnXoa.EnableGradient = true;
+            btnXoa.EnableShadow = true;
+            btnXoa.FlatStyle = FlatStyle.Flat;
+            btnXoa.Font = new Font("Segoe UI Semibold", 10F);
+            btnXoa.ForeColor = Color.Black;
+            btnXoa.HoverColor = Color.FromArgb(239, 176, 201);
+            btnXoa.Location = new Point(290, 485);
             btnXoa.Margin = new Padding(4, 5, 4, 5);
             btnXoa.Name = "btnXoa";
-            btnXoa.Size = new Size(100, 35);
+            btnXoa.NormalColor = Color.FromArgb(161, 201, 241);
+            btnXoa.Padding = new Padding(8, 4, 8, 4);
+            btnXoa.PressedColor = Color.FromArgb(185, 214, 243);
+            btnXoa.Size = new Size(120, 45);
             btnXoa.TabIndex = 11;
-            btnXoa.Text = "Xóa";
+            btnXoa.Text = "🗑️ Xóa";
             btnXoa.UseVisualStyleBackColor = true;
             btnXoa.Click += btnXoa_Click;
             // 
             // btnLamMoi
             // 
-            btnLamMoi.Location = new Point(384, 491);
+            btnLamMoi.BackColor = Color.FromArgb(161, 201, 241);
+            btnLamMoi.BorderColor = Color.FromArgb(244, 194, 215);
+            btnLamMoi.BorderRadius = 12;
+            btnLamMoi.BorderThickness = 1;
+            btnLamMoi.EnableGradient = true;
+            btnLamMoi.EnableShadow = true;
+            btnLamMoi.FlatStyle = FlatStyle.Flat;
+            btnLamMoi.Font = new Font("Segoe UI Semibold", 10F);
+            btnLamMoi.ForeColor = Color.Black;
+            btnLamMoi.HoverColor = Color.FromArgb(239, 176, 201);
+            btnLamMoi.Location = new Point(420, 485);
             btnLamMoi.Margin = new Padding(4, 5, 4, 5);
             btnLamMoi.Name = "btnLamMoi";
-            btnLamMoi.Size = new Size(100, 35);
+            btnLamMoi.NormalColor = Color.FromArgb(161, 201, 241);
+            btnLamMoi.Padding = new Padding(8, 4, 8, 4);
+            btnLamMoi.PressedColor = Color.FromArgb(185, 214, 243);
+            btnLamMoi.Size = new Size(120, 45);
             btnLamMoi.TabIndex = 12;
-            btnLamMoi.Text = "Làm mới";
+            btnLamMoi.Text = "🔄 Làm mới";
             btnLamMoi.UseVisualStyleBackColor = true;
             btnLamMoi.Click += btnLamMoi_Click;
             // 
@@ -175,7 +232,7 @@ namespace QuanNetCung
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1053, 553);
+            ClientSize = new Size(1053, 570);
             Controls.Add(btnLamMoi);
             Controls.Add(btnXoa);
             Controls.Add(btnSua);
@@ -209,9 +266,9 @@ namespace QuanNetCung
         private System.Windows.Forms.TextBox txtGiaGoi;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtMoTa;
-        private System.Windows.Forms.Button btnThem;
-        private System.Windows.Forms.Button btnSua;
-        private System.Windows.Forms.Button btnXoa;
-        private System.Windows.Forms.Button btnLamMoi;
+        private QuanNetCung.PastelButton btnThem;
+        private QuanNetCung.PastelButton btnSua;
+        private QuanNetCung.PastelButton btnXoa;
+        private QuanNetCung.PastelButton btnLamMoi;
     }
 }

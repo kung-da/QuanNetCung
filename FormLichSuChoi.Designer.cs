@@ -1,3 +1,6 @@
+using System.Drawing;
+using System.Windows.Forms;
+
 namespace QuanNetCung
 {
     partial class FormLichSuChoi
@@ -28,62 +31,82 @@ namespace QuanNetCung
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.cmbKhachHang = new System.Windows.Forms.ComboBox();
-            this.btnXemLichSu = new System.Windows.Forms.Button();
-            this.dgvLichSu = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLichSu)).BeginInit();
-            this.SuspendLayout();
+            label1 = new Label();
+            cmbKhachHang = new ComboBox();
+            btnXemLichSu = new PastelButton();
+            dgvLichSu = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dgvLichSu).BeginInit();
+            SuspendLayout();
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(50, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Khách hàng:";
+            label1.AutoSize = true;
+            label1.Location = new Point(67, 31);
+            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(89, 20);
+            label1.TabIndex = 0;
+            label1.Text = "Khách hàng:";
             // 
             // cmbKhachHang
             // 
-            this.cmbKhachHang.FormattingEnabled = true;
-            this.cmbKhachHang.Location = new System.Drawing.Point(130, 17);
-            this.cmbKhachHang.Name = "cmbKhachHang";
-            this.cmbKhachHang.Size = new System.Drawing.Size(150, 21);
-            this.cmbKhachHang.TabIndex = 1;
+            cmbKhachHang.FormattingEnabled = true;
+            cmbKhachHang.Location = new Point(173, 26);
+            cmbKhachHang.Margin = new Padding(4, 5, 4, 5);
+            cmbKhachHang.Name = "cmbKhachHang";
+            cmbKhachHang.Size = new Size(199, 28);
+            cmbKhachHang.TabIndex = 1;
             // 
             // btnXemLichSu
             // 
-            this.btnXemLichSu.Location = new System.Drawing.Point(300, 15);
-            this.btnXemLichSu.Name = "btnXemLichSu";
-            this.btnXemLichSu.Size = new System.Drawing.Size(100, 23);
-            this.btnXemLichSu.TabIndex = 2;
-            this.btnXemLichSu.Text = "Xem lịch sử";
-            this.btnXemLichSu.UseVisualStyleBackColor = true;
-            this.btnXemLichSu.Click += new System.EventHandler(this.btnXemLichSu_Click);
+            btnXemLichSu.BackColor = Color.FromArgb(161, 201, 241);
+            btnXemLichSu.BorderColor = Color.FromArgb(244, 194, 215);
+            btnXemLichSu.BorderRadius = 12;
+            btnXemLichSu.BorderThickness = 1;
+            btnXemLichSu.EnableGradient = true;
+            btnXemLichSu.EnableShadow = true;
+            btnXemLichSu.FlatStyle = FlatStyle.Flat;
+            btnXemLichSu.Font = new Font("Segoe UI Semibold", 10F);
+            btnXemLichSu.ForeColor = Color.Black;
+            btnXemLichSu.HoverColor = Color.FromArgb(239, 176, 201);
+            btnXemLichSu.Location = new Point(400, 15);
+            btnXemLichSu.Margin = new Padding(4, 5, 4, 5);
+            btnXemLichSu.Name = "btnXemLichSu";
+            btnXemLichSu.NormalColor = Color.FromArgb(161, 201, 241);
+            btnXemLichSu.Padding = new Padding(11, 6, 11, 6);
+            btnXemLichSu.PressedColor = Color.FromArgb(185, 214, 243);
+            btnXemLichSu.Size = new Size(173, 54);
+            btnXemLichSu.TabIndex = 2;
+            btnXemLichSu.Text = "📊 Xem lịch sử";
+            btnXemLichSu.UseVisualStyleBackColor = true;
+            btnXemLichSu.Click += btnXemLichSu_Click;
             // 
             // dgvLichSu
             // 
-            this.dgvLichSu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvLichSu.Location = new System.Drawing.Point(12, 50);
-            this.dgvLichSu.Name = "dgvLichSu";
-            this.dgvLichSu.Size = new System.Drawing.Size(560, 350);
-            this.dgvLichSu.TabIndex = 3;
+            dgvLichSu.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvLichSu.Location = new Point(0, 78);
+            dgvLichSu.Margin = new Padding(4, 5, 4, 5);
+            dgvLichSu.Name = "dgvLichSu";
+            dgvLichSu.RowHeadersVisible = false;
+            dgvLichSu.RowHeadersWidth = 51;
+            dgvLichSu.Size = new Size(1062, 538);
+            dgvLichSu.TabIndex = 3;
             // 
             // FormLichSuChoi
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(584, 411);
-            this.Controls.Add(this.dgvLichSu);
-            this.Controls.Add(this.btnXemLichSu);
-            this.Controls.Add(this.cmbKhachHang);
-            this.Controls.Add(this.label1);
-            this.Name = "FormLichSuChoi";
-            this.Text = "Lịch sử chơi";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLichSu)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1062, 616);
+            Controls.Add(dgvLichSu);
+            Controls.Add(btnXemLichSu);
+            Controls.Add(cmbKhachHang);
+            Controls.Add(label1);
+            Margin = new Padding(4, 5, 4, 5);
+            Name = "FormLichSuChoi";
+            Text = "Lịch sử chơi";
+            ((System.ComponentModel.ISupportInitialize)dgvLichSu).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 
@@ -91,7 +114,7 @@ namespace QuanNetCung
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbKhachHang;
-        private System.Windows.Forms.Button btnXemLichSu;
+        private QuanNetCung.PastelButton btnXemLichSu;
         private System.Windows.Forms.DataGridView dgvLichSu;
     }
 }

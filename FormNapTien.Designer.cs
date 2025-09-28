@@ -1,3 +1,6 @@
+using System.Drawing;
+using System.Windows.Forms;
+
 namespace QuanNetCung
 {
     partial class FormNapTien
@@ -28,70 +31,89 @@ namespace QuanNetCung
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.cmbKhachHang = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtSoTien = new System.Windows.Forms.TextBox();
-            this.btnNapTien = new System.Windows.Forms.Button();
-            this.SuspendLayout();
+            label1 = new Label();
+            cmbKhachHang = new ComboBox();
+            label2 = new Label();
+            txtSoTien = new TextBox();
+            btnNapTien = new PastelButton();
+            SuspendLayout();
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(50, 50);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Khách hàng:";
+            label1.AutoSize = true;
+            label1.Location = new Point(67, 77);
+            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(89, 20);
+            label1.TabIndex = 0;
+            label1.Text = "Khách hàng:";
             // 
             // cmbKhachHang
             // 
-            this.cmbKhachHang.FormattingEnabled = true;
-            this.cmbKhachHang.Location = new System.Drawing.Point(130, 47);
-            this.cmbKhachHang.Name = "cmbKhachHang";
-            this.cmbKhachHang.Size = new System.Drawing.Size(150, 21);
-            this.cmbKhachHang.TabIndex = 1;
+            cmbKhachHang.FormattingEnabled = true;
+            cmbKhachHang.Location = new Point(173, 72);
+            cmbKhachHang.Margin = new Padding(4, 5, 4, 5);
+            cmbKhachHang.Name = "cmbKhachHang";
+            cmbKhachHang.Size = new Size(312, 28);
+            cmbKhachHang.TabIndex = 1;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(50, 90);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(50, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Số tiền:";
+            label2.AutoSize = true;
+            label2.Location = new Point(67, 138);
+            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(58, 20);
+            label2.TabIndex = 2;
+            label2.Text = "Số tiền:";
             // 
             // txtSoTien
             // 
-            this.txtSoTien.Location = new System.Drawing.Point(130, 87);
-            this.txtSoTien.Name = "txtSoTien";
-            this.txtSoTien.Size = new System.Drawing.Size(150, 20);
-            this.txtSoTien.TabIndex = 3;
+            txtSoTien.Location = new Point(173, 134);
+            txtSoTien.Margin = new Padding(4, 5, 4, 5);
+            txtSoTien.Name = "txtSoTien";
+            txtSoTien.Size = new Size(312, 27);
+            txtSoTien.TabIndex = 3;
             // 
             // btnNapTien
             // 
-            this.btnNapTien.Location = new System.Drawing.Point(130, 130);
-            this.btnNapTien.Name = "btnNapTien";
-            this.btnNapTien.Size = new System.Drawing.Size(75, 23);
-            this.btnNapTien.TabIndex = 4;
-            this.btnNapTien.Text = "Nạp tiền";
-            this.btnNapTien.UseVisualStyleBackColor = true;
-            this.btnNapTien.Click += new System.EventHandler(this.btnNapTien_Click);
+            btnNapTien.BackColor = Color.FromArgb(161, 201, 241);
+            btnNapTien.BorderColor = Color.FromArgb(244, 194, 215);
+            btnNapTien.BorderRadius = 12;
+            btnNapTien.BorderThickness = 1;
+            btnNapTien.EnableGradient = true;
+            btnNapTien.EnableShadow = true;
+            btnNapTien.FlatStyle = FlatStyle.Flat;
+            btnNapTien.Font = new Font("Segoe UI Semibold", 10F);
+            btnNapTien.ForeColor = Color.Black;
+            btnNapTien.HoverColor = Color.FromArgb(239, 176, 201);
+            btnNapTien.Location = new Point(193, 200);
+            btnNapTien.Margin = new Padding(4, 5, 4, 5);
+            btnNapTien.Name = "btnNapTien";
+            btnNapTien.NormalColor = Color.FromArgb(161, 201, 241);
+            btnNapTien.Padding = new Padding(11, 6, 11, 6);
+            btnNapTien.PressedColor = Color.FromArgb(185, 214, 243);
+            btnNapTien.Size = new Size(273, 63);
+            btnNapTien.TabIndex = 4;
+            btnNapTien.Text = "💰 Nạp tiền";
+            btnNapTien.UseVisualStyleBackColor = true;
+            btnNapTien.Click += btnNapTien_Click;
             // 
             // FormNapTien
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(334, 181);
-            this.Controls.Add(this.btnNapTien);
-            this.Controls.Add(this.txtSoTien);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.cmbKhachHang);
-            this.Controls.Add(this.label1);
-            this.Name = "FormNapTien";
-            this.Text = "Nạp tiền";
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(808, 448);
+            Controls.Add(btnNapTien);
+            Controls.Add(txtSoTien);
+            Controls.Add(label2);
+            Controls.Add(cmbKhachHang);
+            Controls.Add(label1);
+            Margin = new Padding(4, 5, 4, 5);
+            Name = "FormNapTien";
+            Text = "Nạp tiền";
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 
@@ -101,6 +123,6 @@ namespace QuanNetCung
         private System.Windows.Forms.ComboBox cmbKhachHang;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtSoTien;
-        private System.Windows.Forms.Button btnNapTien;
+        private QuanNetCung.PastelButton btnNapTien;
     }
 }

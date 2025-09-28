@@ -28,83 +28,93 @@ namespace QuanNetCung
         /// </summary>
         private void InitializeComponent()
         {
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.dgvTongTien = new System.Windows.Forms.DataGridView();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.dgvHoiVien = new System.Windows.Forms.DataGridView();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTongTien)).BeginInit();
-            this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvHoiVien)).BeginInit();
-            this.SuspendLayout();
+            tabControl1 = new TabControl();
+            tabPage1 = new TabPage();
+            dgvTongTien = new DataGridView();
+            tabPage2 = new TabPage();
+            dgvHoiVien = new DataGridView();
+            tabControl1.SuspendLayout();
+            tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvTongTien).BeginInit();
+            tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvHoiVien).BeginInit();
+            SuspendLayout();
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(600, 400);
-            this.tabControl1.TabIndex = 0;
+            tabControl1.Controls.Add(tabPage1);
+            tabControl1.Controls.Add(tabPage2);
+            tabControl1.Dock = DockStyle.Fill;
+            tabControl1.Location = new Point(0, 0);
+            tabControl1.Margin = new Padding(4, 5, 4, 5);
+            tabControl1.Name = "tabControl1";
+            tabControl1.SelectedIndex = 0;
+            tabControl1.Size = new Size(800, 615);
+            tabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.dgvTongTien);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(592, 374);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Tổng tiền khách hàng";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            tabPage1.Controls.Add(dgvTongTien);
+            tabPage1.Location = new Point(4, 29);
+            tabPage1.Margin = new Padding(4, 5, 4, 5);
+            tabPage1.Name = "tabPage1";
+            tabPage1.Padding = new Padding(4, 5, 4, 5);
+            tabPage1.Size = new Size(792, 582);
+            tabPage1.TabIndex = 0;
+            tabPage1.Text = "Tổng tiền khách hàng";
+            tabPage1.UseVisualStyleBackColor = true;
             // 
             // dgvTongTien
             // 
-            this.dgvTongTien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTongTien.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvTongTien.Location = new System.Drawing.Point(3, 3);
-            this.dgvTongTien.Name = "dgvTongTien";
-            this.dgvTongTien.Size = new System.Drawing.Size(586, 368);
-            this.dgvTongTien.TabIndex = 0;
+            dgvTongTien.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvTongTien.Dock = DockStyle.Fill;
+            dgvTongTien.Location = new Point(4, 5);
+            dgvTongTien.Margin = new Padding(4, 5, 4, 5);
+            dgvTongTien.Name = "dgvTongTien";
+            dgvTongTien.RowHeadersVisible = false;
+            dgvTongTien.RowHeadersWidth = 51;
+            dgvTongTien.Size = new Size(784, 572);
+            dgvTongTien.TabIndex = 0;
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.dgvHoiVien);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(592, 374);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Danh sách hội viên";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            tabPage2.Controls.Add(dgvHoiVien);
+            tabPage2.Location = new Point(4, 29);
+            tabPage2.Margin = new Padding(4, 5, 4, 5);
+            tabPage2.Name = "tabPage2";
+            tabPage2.Padding = new Padding(4, 5, 4, 5);
+            tabPage2.Size = new Size(792, 582);
+            tabPage2.TabIndex = 1;
+            tabPage2.Text = "Danh sách hội viên";
+            tabPage2.UseVisualStyleBackColor = true;
             // 
             // dgvHoiVien
             // 
-            this.dgvHoiVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvHoiVien.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvHoiVien.Location = new System.Drawing.Point(3, 3);
-            this.dgvHoiVien.Name = "dgvHoiVien";
-            this.dgvHoiVien.Size = new System.Drawing.Size(586, 368);
-            this.dgvHoiVien.TabIndex = 0;
+            dgvHoiVien.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvHoiVien.Dock = DockStyle.Fill;
+            dgvHoiVien.Location = new Point(4, 5);
+            dgvHoiVien.Margin = new Padding(4, 5, 4, 5);
+            dgvHoiVien.Name = "dgvHoiVien";
+            dgvHoiVien.RowHeadersVisible = false;
+            dgvHoiVien.RowHeadersWidth = 51;
+            dgvHoiVien.Size = new Size(784, 572);
+            dgvHoiVien.TabIndex = 0;
             // 
             // FormBaoCao
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 400);
-            this.Controls.Add(this.tabControl1);
-            this.Name = "FormBaoCao";
-            this.Text = "Báo cáo";
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTongTien)).EndInit();
-            this.tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvHoiVien)).EndInit();
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 615);
+            Controls.Add(tabControl1);
+            Margin = new Padding(4, 5, 4, 5);
+            Name = "FormBaoCao";
+            Text = "Báo cáo";
+            tabControl1.ResumeLayout(false);
+            tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvTongTien).EndInit();
+            tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvHoiVien).EndInit();
+            ResumeLayout(false);
 
         }
 

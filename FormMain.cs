@@ -104,7 +104,18 @@ namespace QuanNetCung
         {
             if (!IsFormAllowed(form))
             {
-                MessageBox.Show("Bạn không có quyền truy cập chức năng này.", "Phân quyền", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                string formName = form.GetType().Name switch
+                {
+                    "FormKhachHang" => "Quản lý khách hàng",
+                    "FormNapTien" => "Nạp tiền",
+                    "FormLichSuChoi" => "Lịch sử chơi", 
+                    "FormGoiHoiVien" => "Quản lý gói hội viên",
+                    "FormBaoCao" => "Báo cáo",
+                    "FormCaiDat" => "Cài đặt",
+                    _ => "Chức năng này"
+                };
+                
+                DatabaseHelper.ShowPermissionDenied("Truy cập chức năng", formName);
                 form.Dispose();
                 return;
             }

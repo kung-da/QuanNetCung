@@ -46,6 +46,27 @@ namespace QuanNetCung
                     adapter.Fill(dt);
                     return dt;
                 }
+                catch (SqlException sqlEx) when (sqlEx.Message.Contains("permission was denied"))
+                {
+                    // Extract object name từ SQL error message  
+                    string objectName = "Unknown Object";
+                    if (sqlEx.Message.Contains("object '"))
+                    {
+                        try
+                        {
+                            int startIndex = sqlEx.Message.IndexOf("object '") + 8;
+                            int endIndex = sqlEx.Message.IndexOf("'", startIndex);
+                            if (startIndex > 7 && endIndex > startIndex)
+                            {
+                                objectName = sqlEx.Message.Substring(startIndex, endIndex - startIndex);
+                            }
+                        }
+                        catch { }
+                    }
+                    
+                    ShowPermissionDenied("Truy vấn dữ liệu", objectName);
+                    return null;
+                }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Lỗi: " + ex.Message);
@@ -68,6 +89,27 @@ namespace QuanNetCung
                         cmd.Parameters.AddRange(parameters);
                     }
                     return cmd.ExecuteNonQuery();
+                }
+                catch (SqlException sqlEx) when (sqlEx.Message.Contains("permission was denied"))
+                {
+                    // Extract object name từ SQL error message  
+                    string objectName = "Unknown Object";
+                    if (sqlEx.Message.Contains("object '"))
+                    {
+                        try
+                        {
+                            int startIndex = sqlEx.Message.IndexOf("object '") + 8;
+                            int endIndex = sqlEx.Message.IndexOf("'", startIndex);
+                            if (startIndex > 7 && endIndex > startIndex)
+                            {
+                                objectName = sqlEx.Message.Substring(startIndex, endIndex - startIndex);
+                            }
+                        }
+                        catch { }
+                    }
+                    
+                    ShowPermissionDenied("Cập nhật dữ liệu", objectName, sqlEx.Message);
+                    return -1;
                 }
                 catch (Exception ex)
                 {
@@ -96,6 +138,27 @@ namespace QuanNetCung
                     adapter.Fill(dt);
                     return dt;
                 }
+                catch (SqlException sqlEx) when (sqlEx.Message.Contains("permission was denied"))
+                {
+                    // Extract object name từ SQL error message  
+                    string objectName = "Unknown Object";
+                    if (sqlEx.Message.Contains("object '"))
+                    {
+                        try
+                        {
+                            int startIndex = sqlEx.Message.IndexOf("object '") + 8;
+                            int endIndex = sqlEx.Message.IndexOf("'", startIndex);
+                            if (startIndex > 7 && endIndex > startIndex)
+                            {
+                                objectName = sqlEx.Message.Substring(startIndex, endIndex - startIndex);
+                            }
+                        }
+                        catch { }
+                    }
+                    
+                    ShowPermissionDenied("Truy vấn dữ liệu", objectName);
+                    return null;
+                }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Lỗi: " + ex.Message);
@@ -120,6 +183,11 @@ namespace QuanNetCung
                     }
                     return cmd.ExecuteNonQuery();
                 }
+                catch (SqlException sqlEx) when (sqlEx.Message.Contains("permission was denied"))
+                {
+                    ShowPermissionDenied("Thực thi thủ tục", procedureName, sqlEx.Message);
+                    return -1;
+                }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Lỗi: " + ex.Message);
@@ -143,6 +211,11 @@ namespace QuanNetCung
                     }
                     return cmd.ExecuteScalar();
                 }
+                catch (SqlException sqlEx) when (sqlEx.Message.Contains("permission was denied"))
+                {
+                    ShowPermissionDenied("Gọi hàm", functionName, sqlEx.Message);
+                    return null;
+                }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Lỗi: " + ex.Message);
@@ -163,6 +236,42 @@ namespace QuanNetCung
             connectionString = $"Server=localhost;Database=QuanNetDB;User Id={username};Password={password};MultipleActiveResultSets=true;";
             CurrentUsername = username;
             CurrentRole = UserRole.Unknown; // reset trước khi detect
+        }
+
+
+
+        // Method thống nhất để hiển thị thông báo phân quyền đầy đủ
+        public static void ShowPermissionDenied(string action = "", string objectName = "", string sqlError = "")
+        {
+            string roleText = CurrentRole switch
+            {
+                UserRole.Admin => "Quản trị viên",
+                UserRole.NhanVien => "Nhân viên", 
+                UserRole.HoiVien => "Hội viên",
+                _ => "Không xác định"
+            };
+
+            string message = "⚠️ CẢNH BÁO PHÂN QUYỀN\n\n";
+            message += "🚫 KHÔNG ĐỦ QUYỀN TRUY CẬP\n\n";
+            
+            if (!string.IsNullOrEmpty(action))
+                message += $"📋 Thao tác: {action}\n";
+                
+            if (!string.IsNullOrEmpty(objectName))
+                message += $"🎯 Đối tượng: {objectName}\n";
+                
+            message += $"👤 Người dùng: {CurrentUsername}\n" +
+                      $"🔑 Vai trò hiện tại: {roleText}\n";
+
+            // Hiển thị thông tin SQL error nếu có
+            if (!string.IsNullOrEmpty(sqlError))
+            {
+                message += $"\n🔍 Chi tiết lỗi SQL:\n{sqlError}\n";
+            }
+
+            message += "\n💡 Vui lòng liên hệ quản trị viên để được cấp quyền!";
+
+            MessageBox.Show(message, "Cảnh báo phân quyền", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         // Phát hiện role bằng IS_ROLEMEMBER các role ứng dụng
